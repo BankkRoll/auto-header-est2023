@@ -49,7 +49,7 @@ const languageCommentMapping: { [key: string]: CommentSyntax } = {
     "fsharp": { "single": "//", "multiStart": "(*", "multiEnd": "*)" },
     "clojure": { "single": ";", "multiStart": "", "multiEnd": "" },
     "dart": { "single": "//", "multiStart": "/*", "multiEnd": "*/" },
-	"coffeescript": { "single": "#", "multiStart": "###", "multiEnd": "###" },
+    "coffeescript": { "single": "#", "multiStart": "###", "multiEnd": "###" },
     "graphql": { "single": "#", "multiStart": "", "multiEnd": "" },
     "markdown": { "single": "<!--", "multiStart": "<!--", "multiEnd": "-->" },
     "objectivec": { "single": "//", "multiStart": "/*", "multiEnd": "*/" },
