@@ -3,8 +3,21 @@
 <img src="https://github.com/BankkRoll/auto-header-est2023/assets/106103625/d5ccd12d-336f-4574-a2a6-2c012ddeea9c" />
 <br>auto-header-est2023
 </h1>
-<h3>◦ Easily name your files with custom header text, you have the freedom to choose between single-line or multi-line comment styles to suit your preference. Use the built-in command or the auto-tagging feature for effortless header generation or just use autotag we will figure out the langue and do it for you on each new file you make</h3>
+<h3>◦ Enhance your coding experience in Visual Studio Code with the "Header Naming" extension. Seamlessly name your files with custom headers tailored to your preferences. Choose between concise single-line comments or comprehensive multi-line block comments. Use the built-in command, opt for the auto-tagging feature, or simply enable auto-tag, and we'll discern the language and automatically insert appropriate headers for every new file you create.</h3>
 </div>
+
+<h4>Our extension boasts compatibility with an extensive array of programming languages, including but not limited to:</h4>
+<ul>
+    <li>JavaScript</li>
+    <li>Python</li>
+    <li>Java</li>
+    <li>C/C++/C#</li>
+    <li>Ruby</li>
+    <li>PHP</li>
+    <li>... and dozens more!</li>
+</ul>
+
+<p>For a comprehensive list of supported languages and their respective comment syntax, delve into the <a href="src/extension.ts">source code</a>.</p>
 
 ---
 
