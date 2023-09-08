@@ -2,7 +2,7 @@
   "name": "auto-header-est2023",
   "displayName": "Auto Header EST.2023",
   "description": "Easily name your files with custom header text",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "BankkRoll <https://github.com/BankkRoll>",
   "engines": {
     "vscode": "^1.81.0"
@@ -125,8 +125,5 @@
     "typescript": "^5.1.6",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "quick-readme": "^1.1.2"
   }
 }
