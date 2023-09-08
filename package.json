@@ -1,0 +1,132 @@
+{
+  "name": "auto-header-est2023",
+  "displayName": "Auto Header EST.2023",
+  "description": "Easily name your files with custom header text",
+  "version": "0.0.1",
+  "author": "BankkRoll <https://github.com/BankkRoll>",
+  "engines": {
+    "vscode": "^1.81.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/*",
+    "onFileSystem:*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "auto-header-est2023.addHeader",
+        "title": "Add Header"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "auto-header-est2023.addHeader",
+        "key": "ctrl+shift+space",
+        "mac": "cmd+shift+space",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Auto Header EST.2023",
+      "properties": {
+        "auto-header-est2023.autoHeader": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically insert headers into new files of supported languages.",
+          "order": 1
+        },
+        "auto-header-est2023.autoGenerateFilePath": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically generate and insert the file's relative path as a comment.",
+          "order": 2
+        },
+        "auto-header-est2023.commentType": {
+          "type": "string",
+          "default": "multiline",
+          "enum": [
+            "singleline",
+            "multiline"
+          ],
+          "description": "Preferred comment style.",
+          "order": 3
+        },
+        "auto-header-est2023.author": {
+          "type": "string",
+          "default": "",
+          "description": "Author's name. Replaces the {author} placeholder.",
+          "order": 4
+        },
+        "auto-header-est2023.company": {
+          "type": "string",
+          "default": "",
+          "description": "Company's name. Replaces the {company} placeholder.",
+          "order": 5
+        },
+        "auto-header-est2023.date": {
+          "type": "string",
+          "default": "{timestamp}",
+          "description": "Set to 'timestamp' for the current date. Replaces the {date} placeholder.",
+          "order": 6
+        },
+        "auto-header-est2023.line1": {
+          "type": "string",
+          "default": "Author: {author}",
+          "description": "First header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
+          "order": 7
+        },
+        "auto-header-est2023.line2": {
+          "type": "string",
+          "default": "Created: {date}",
+          "description": "Second header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
+          "order": 8
+        },
+        "auto-header-est2023.line3": {
+          "type": "string",
+          "default": "(c) Copyright by {company}",
+          "description": "Third header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
+          "order": 9
+        },
+        "auto-header-est2023.customCommentSyntax": {
+          "type": "object",
+          "default": {},
+          "description": "Custom comment syntax for specific languages. Example: {'mylang': {'single': '##', 'multiStart': '/**', 'multiEnd': '**/'} }.",
+          "order": 10
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.81.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "quick-readme": "^1.1.2"
+  }
+}
