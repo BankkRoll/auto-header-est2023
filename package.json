@@ -1,14 +1,20 @@
 {
   "name": "auto-header-est2023",
   "displayName": "Auto Header EST.2023",
+  "icon": "./logo.png",
   "description": "Easily name your files with custom header text",
   "version": "1.0.0",
   "author": "BankkRoll <https://github.com/BankkRoll>",
   "engines": {
     "vscode": "^1.81.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BankkRoll/auto-header-est2023"
+  },
+  "publisher": "BankkRoll",  
   "categories": [
-    "Other"
+    "Visualization"
   ],
   "activationEvents": [
     "workspaceContains:**/*",
