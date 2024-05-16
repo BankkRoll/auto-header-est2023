@@ -1,9 +1,8 @@
 {
   "name": "auto-header-est2023",
   "displayName": "Auto Header EST.2023",
-  "icon": "./logo.png",
   "description": "Easily name your files with custom header text",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "BankkRoll <https://github.com/BankkRoll>",
   "engines": {
     "vscode": "^1.81.0"
@@ -12,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/BankkRoll/auto-header-est2023"
   },
-  "publisher": "BankkRoll",  
+  "publisher": "BankkRoll",
   "categories": [
     "Visualization"
   ],
@@ -39,17 +38,23 @@
     "configuration": {
       "title": "Auto Header EST.2023",
       "properties": {
+        "auto-header-est2023.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the Auto Header extension.",
+          "order": 1
+        },
         "auto-header-est2023.autoHeader": {
           "type": "boolean",
           "default": false,
           "description": "Automatically insert headers into new files of supported languages.",
-          "order": 1
+          "order": 2
         },
         "auto-header-est2023.autoGenerateFilePath": {
           "type": "boolean",
           "default": false,
           "description": "Automatically generate and insert the file's relative path as a comment.",
-          "order": 2
+          "order": 3
         },
         "auto-header-est2023.commentType": {
           "type": "string",
@@ -59,49 +64,133 @@
             "multiline"
           ],
           "description": "Preferred comment style.",
-          "order": 3
+          "order": 4
         },
         "auto-header-est2023.author": {
           "type": "string",
-          "default": "",
+          "default": "Bankkroll",
           "description": "Author's name. Replaces the {author} placeholder.",
-          "order": 4
+          "order": 5
         },
         "auto-header-est2023.company": {
           "type": "string",
-          "default": "",
+          "default": "auto-header-est2023",
           "description": "Company's name. Replaces the {company} placeholder.",
-          "order": 5
+          "order": 6
         },
         "auto-header-est2023.date": {
           "type": "string",
           "default": "{timestamp}",
           "description": "Set to 'timestamp' for the current date. Replaces the {date} placeholder.",
-          "order": 6
+          "order": 7
         },
         "auto-header-est2023.line1": {
           "type": "string",
           "default": "Author: {author}",
           "description": "First header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
-          "order": 7
+          "order": 8
         },
         "auto-header-est2023.line2": {
           "type": "string",
           "default": "Created: {date}",
           "description": "Second header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
-          "order": 8
+          "order": 9
         },
         "auto-header-est2023.line3": {
           "type": "string",
           "default": "(c) Copyright by {company}",
           "description": "Third header line. Placeholders: {author}, {date}, {company}. Leave blank to skip.",
-          "order": 9
+          "order": 10
         },
         "auto-header-est2023.customCommentSyntax": {
           "type": "object",
           "default": {},
-          "description": "Custom comment syntax for specific languages. Example: {'mylang': {'single': '##', 'multiStart': '/**', 'multiEnd': '**/'} }.",
-          "order": 10
+          "description": "Custom comment syntax for specific languages. Example: {'mylang': {'single': '##', 'multiStart': '/**', 'multiEnd': '**/'}}.",
+          "order": 11
+        },
+        "auto-header-est2023.ignoredPaths": {
+          "type": "array",
+          "default": [
+            ".next",
+            "node_modules",
+            "dist",
+            "build",
+            ".git",
+            "coverage",
+            "out",
+            "target",
+            "venv",
+            "__pycache__",
+            "*.log",
+            "*.lock",
+            "*.min.js",
+            "*.min.css",
+            "bower_components",
+            "jspm_packages",
+            "tmp",
+            "temp",
+            ".vscode"
+          ],
+          "description": "List of file paths or directories to ignore when adding headers. Example: ['.next', 'node_modules', 'dist', 'build', '.git', 'coverage'].",
+          "items": {
+            "type": "string"
+          },
+          "order": 12
+        },
+        "auto-header-est2023.license": {
+          "type": "string",
+          "default": "MIT",
+          "enum": [
+            "MIT",
+            "GPL-3.0",
+            "Apache-2.0",
+            "BSD-2-Clause",
+            "BSD-3-Clause",
+            "ISC",
+            "MPL-2.0",
+            "LGPL-3.0",
+            "Unlicense",
+            "EPL-2.0"
+          ],
+          "description": "Select the license for the file.",
+          "order": 13
+        },
+        "auto-header-est2023.githubLink": {
+          "type": "string",
+          "default": "https://github.com/BankkRoll/auto-header-est2023",
+          "description": "GitHub repository link.",
+          "order": 14
+        },
+        "auto-header-est2023.customHeaderTemplate": {
+          "type": "string",
+          "default": "{single} {author}\n{single} {date}\n{single} {company}\n{single} {license}\n{single} {githubLink}\n{single} {line1}\n{single} {line2}\n{single} {line3}\n",
+          "description": "Template for the custom header. Use placeholders: {single}, {multiStart}, {multiEnd}, {author}, {date}, {company}, {license}, {githubLink}, {line1}, {line2}, {line3}.",
+          "order": 15
+        },
+        "auto-header-est2023.headerLayout": {
+          "type": "array",
+          "default": [
+            "author",
+            "date",
+            "company",
+            "license",
+            "githubLink"
+          ],
+          "description": "Customize the order and layout of the header sections. Example: ['author', 'date', 'company', 'license', 'githubLink'].",
+          "items": {
+            "type": "string",
+            "enum": [
+              "author",
+              "date",
+              "company",
+              "license",
+              "githubLink",
+              "line1",
+              "line2",
+              "line3"
+            ]
+          },
+          "order": 16
         }
       }
     }
@@ -118,15 +207,11 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
     "@types/vscode": "^1.81.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
-    "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.47.0",
-    "glob": "^10.3.3",
-    "mocha": "^10.2.0",
     "ts-loader": "^9.4.4",
     "typescript": "^5.1.6",
     "webpack": "^5.88.2",

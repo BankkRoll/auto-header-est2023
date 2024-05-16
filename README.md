@@ -43,18 +43,17 @@
 
 ---
 
-
-
 ## ⚙️ Features
 
 | Feature | Description |
 | ------- | ----------- |
 | **Multiple Language Support** | Supports over **100 programming languages** and counting! The extension automatically detects the language's comment syntax for precise header insertion. |
-| **Auto Header Insertion (Beta)** | Allows for headers to be automatically inserted into new files of recognized languages. |
-| **File Naming Feature** | Directly place headers in files or entire folders, ensuring a consistent and organized codebase. |
-| **Extendable** | For those niche languages or specific use cases, easily define custom comment syntax that may not be covered by default. |
-| **Customization** | Personalize your headers with dynamic placeholders such as: <br> - `{author}`: Designate the file's author. <br> - `{date}`: Timestamp your work with the creation or last modified date. <br> - `{company}`: Attribute the work to a particular organization or entity. |
-
+| **Auto Header Insertion (Beta)** | Automatically inserts headers into new files of supported languages. |
+| **File Path Comment** | Automatically generates and inserts the file's relative path as a comment. |
+| **Custom Comment Syntax** | Define custom comment syntax for specific languages that may not be covered by default. |
+| **Customization** | Personalize your headers with dynamic placeholders such as:<br> - `{author}`: Designate the file's author.<br> - `{date}`: Timestamp your work with the creation or last modified date.<br> - `{company}`: Attribute the work to a particular organization or entity.<br> - `{license}`: Specify the license type.<br> - `{githubLink}`: Include a link to your GitHub repository.<br> - `{filePath}`: Include the file's relative path.<br> - `{line1}`: Custom header line 1.<br> - `{line2}`: Custom header line 2.<br> - `{line3}`: Custom header line 3. |
+| **Header Layout** | Customize the order and layout of the header sections. |
+| **Ignored Paths** | Specify file paths or directories to ignore when adding headers. |
 
 ---
 
@@ -62,158 +61,81 @@
 
 1. Launch Visual Studio Code.
 2. Navigate to Extensions or press `Ctrl+Shift+X`.
-3. In the search bar, type "Header Naming" and select the corresponding result to install.
+3. In the search bar, type "Auto Header EST.2023" and select the corresponding result to install.
 
 ---
 
 ## 🚀 Usage
 
-To seamlessly insert headers into your code, follow the steps below:
+### Auto-Tagging Configuration
 
-1. **Auto-Tagging Configuration:**  
-   - Navigate to your VSCode settings.
-   - Enable `auto-header-est2023.autoHeader`.
-   - This sets the extension to automatically append headers to new files of supported languages.
+1. **Enable Auto Header:**
+   - Navigate to your VS Code settings.
+   - Enable `auto-header-est2023.autoHeader` to automatically append headers to new files of supported languages.
+   - Enable `auto-header-est2023.autoGenerateFilePath` to automatically generate and insert the relative path of the file.
 
-2. **Quick Header Generation:**  
-   - Use the `Ctrl+Shift+SpaceBar` shortcut for immediate header generation.
+2. **Customize Your Header:**
+   - Configure the following settings in your VS Code settings:
+     - `auto-header-est2023.author`: Set the author's name.
+     - `auto-header-est2023.date`: Set the date format (use `{timestamp}` for the current date).
+     - `auto-header-est2023.company`: Set the company's name.
+     - `auto-header-est2023.license`: Choose the license type from predefined options (e.g., MIT, GPL-3.0).
+     - `auto-header-est2023.githubLink`: Set the GitHub repository link.
+     - `auto-header-est2023.line1`, `auto-header-est2023.line2`, `auto-header-est2023.line3`: Customize additional header lines.
 
-3. **Command Palette:**  
-   - Activate the command palette with `Ctrl+Shift+P`.
-   - Search for and select "Add Header".
+3. **Comment Style:**
+   - Set the preferred comment style:
+     - `auto-header-est2023.commentType`: Choose between `singleline` and `multiline`.
 
-## 🛠️ Scripts
+4. **Custom Comment Syntax:**
+   - Define custom comment syntax for specific languages:
+     - `auto-header-est2023.customCommentSyntax`: Example: `{"mylang": {"single": "##", "multiStart": "/**", "multiEnd": "**/"}}`.
 
-Here are some common scripts you can run:
+5. **Ignored Paths:**
+   - Specify file paths or directories to ignore when adding headers:
+     - `auto-header-est2023.ignoredPaths`: Example: `[".next", "node_modules"]`.
 
-#### vscode:prepublish
+6. **Custom Header Template:**
+   - Use a custom header template:
+     - `auto-header-est2023.customHeaderTemplate`: Example: `{single} {author}\n{single} {date}\n{single} {company}\n{single} {license}\n{single} {githubLink}\n{single} {line1}\n{single} {line2}\n{single} {line3}\n`.
 
-Prepares the extension for publishing.
+7. **Header Layout:**
+   - Customize the order and layout of the header sections:
+     - `auto-header-est2023.headerLayout`: Example: `["author", "date", "company", "license", "githubLink"]`.
 
-You can run this script using npm or yarn:
+### Quick Header Generation
 
-```shell
-npm run vscode:prepublish
-```
+- Use the `Ctrl+Shift+SpaceBar` shortcut for immediate header generation.
 
-Or with yarn:
+### Command Palette
 
-```shell
-yarn vscode:prepublish
-```
-
-#### compile
-
-Uses webpack to compile the TypeScript source code.
-
-You can run this script using npm or yarn:
-
-```shell
-npm run compile
-```
-
-Or with yarn:
-
-```shell
-yarn compile
-```
-
-#### watch
-
-Uses webpack in watch mode to automatically recompile when files change.
-
-You can run this script using npm or yarn:
-
-```shell
-npm run watch
-```
-
-Or with yarn:
-
-```shell
-yarn watch
-```
-
-#### package
-
-Packages the extension in production mode.
-
-You can run this script using npm or yarn:
-
-```shell
-npm run package
-```
-
-Or with yarn:
-
-```shell
-yarn package
-```
+- Activate the command palette with `Ctrl+Shift+P`.
+- Search for and select "Add Header".
 
 ---
 
-## Configuration
+## 🔧 Configuration Options
 
-Harness the full potential of "Auto Header EST.2023" by tailoring it to your preferences using the VSCode settings:
+Here are all the available settings you can configure for the Auto Header EST.2023 extension:
 
-- `auto-header-est2023.autoHeader`: Enable this option to automatically insert headers into new files of supported languages.
-  
-- `auto-header-est2023.autoGenerateFilePath`: If enabled, the extension will automatically generate and insert the relative path of the file as a comment, providing a clearer context within larger projects.
-
-- `auto-header-est2023.commentType`: Choose your preferred comment style. Options include:
-  - "singleline": All header content is condensed into a single line.
-  - "multiline": The header content spans across multiple lines.
-
-- `auto-header-est2023.author`: Specify the author's name which replaces the `{author}` placeholder in the header.
-
-- `auto-header-est2023.company`: Register your company's name, which will replace the `{company}` placeholder.
-
-- `auto-header-est2023.date`: By default, set to `{timestamp}` which inputs the current timestamp. This replaces the `{date}` placeholder in the header. If you wish to have a custom date format, this can be defined here.
-
-- `auto-header-est2023.line1`, `line2`, `line3`: Fine-tune each line of the header with dynamic placeholders. Available placeholders include `{author}`, `{date}`, and `{company}`. If you prefer to exclude any of these lines from the header, simply leave the corresponding setting blank.
-
-- `auto-header-est2023.customCommentSyntax`: Define custom comment syntax for specific or niche languages that might not be covered by default. This allows you to extend the utility of the extension to virtually any language.
-
----
-
-## 🌳 Directory Tree
-
-```graphql
-├── 📄 .eslintrc.json
-├── 📦 .vscode/
-    ├── 📄 extensions.json
-    ├── 📄 launch.json
-    ├── 📄 settings.json
-    └── 📄 tasks.json
-├── 📄 .vscodeignore
-├── 📄 README.md
-├── 📄 CHANGELOG.md
-├── 📦 dist/
-    ├── 📄 extension.js
-    └── 📄 extension.js.map
-├── 📄 package-lock.json
-├── 📄 package.json
-├── 📦 src/
-    ├── 📄 extension.ts
-    └── 📂 test/
-        ├── 📄 runTest.ts
-        └── 📂 suite/
-            ├── 📄 extension.test.ts
-            └── 📄 index.ts
-├── 📄 tsconfig.json
-├── 📄 vsc-extension-quickstart.md
-└── 📄 webpack.config.js
-```
-
----
-
-## 💻 Language Usage
-
-```
-JSON: ██████ 52.42%
-TypeScript: ██ 35%
-Other: █ 11.58%
-```
+| Setting | Type | Default | Description |
+| ------- | ---- | ------- | ----------- |
+| `auto-header-est2023.enabled` | boolean | `true` | Enable or disable the Auto Header extension. |
+| `auto-header-est2023.autoHeader` | boolean | `false` | Automatically insert headers into new files of supported languages. |
+| `auto-header-est2023.autoGenerateFilePath` | boolean | `false` | Automatically generate and insert the file's relative path as a comment. |
+| `auto-header-est2023.commentType` | string | `multiline` | Preferred comment style (`singleline` or `multiline`). |
+| `auto-header-est2023.author` | string | `""` | Author's name. Replaces the `{author}` placeholder. |
+| `auto-header-est2023.company` | string | `""` | Company's name. Replaces the `{company}` placeholder. |
+| `auto-header-est2023.date` | string | `{timestamp}` | Set to `timestamp` for the current date. Replaces the `{date}` placeholder. |
+| `auto-header-est2023.line1` | string | `Author: {author}` | First header line. Placeholders: `{author}`, `{date}`, `{company}`. Leave blank to skip. |
+| `auto-header-est2023.line2` | string | `Created: {date}` | Second header line. Placeholders: `{author}`, `{date}`, `{company}`. Leave blank to skip. |
+| `auto-header-est2023.line3` | string | `(c) Copyright by {company}` | Third header line. Placeholders: `{author}`, `{date}`, `{company}`. Leave blank to skip. |
+| `auto-header-est2023.customCommentSyntax` | object | `{}` | Custom comment syntax for specific languages. Example: `{"mylang": {"single": "##", "multiStart": "/**", "multiEnd": "**/"}}`. |
+| `auto-header-est2023.ignoredPaths` | array | `[".next", "node_modules"]` | List of file paths or directories to ignore when adding headers. Example: `[".next", "node_modules"]`. |
+| `auto-header-est2023.license` | string | `MIT` | Select the license for the file. Options: `MIT`, `GPL-3.0`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`, `ISC`, `MPL-2.0`, `LGPL-3.0`, `Unlicense`, `EPL-2.0`. |
+| `auto-header-est2023.githubLink` | string | `""` | GitHub repository link. |
+| `auto-header-est2023.customHeaderTemplate` | string | `{single} {author}\n{single} {date}\n{single} {company}\n{single} {license}\n{single} {githubLink}\n{single} {line1}\n{single} {line2}\n{single} {line3}\n` | Template for the custom header. Use placeholders: `{single}`, `{multiStart}`, `{multiEnd}`, `{author}`, `{date}`, `{company}`, `{license}`, `{githubLink}`, `{line1}`, `{line2}`, `{line3}`. |
+| `auto-header-est2023.headerLayout` | array | `["author", "date", "company", "license", "githubLink"]` | Customize the order and layout of the header sections. Example: `["author", "date", "company", "license", "githubLink"]`. |
 
 ---
 
